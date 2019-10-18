@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite guice-stage="DEVELOPMENT" name="Failed suite [RegressionSuite]">
+  <listeners>
+    <listener class-name="com.nag.nagp.testListeners.TestListener"/>
+  </listeners>
+  <test thread-count="5" name="selenium(failed)">
+    <groups>
+      <run>
+        <include name="searchtext"/>
+        <include name="SignUp"/>
+        <include name="Login"/>
+        <include name="Home"/>
+      </run>
+    </groups>
+    <classes>
+      <class name="com.nag.nagp.testcases.Test_AmazonApp">
+        <methods>
+          <include name="getResult"/>
+          <include name="BeforeSuite"/>
+          <include name="tearDown"/>
+          <include name="Test_Validate_HomePage"/>
+          <include name="initializeRestClient"/>
+        </methods>
+      </class> <!-- com.nag.nagp.testcases.Test_AmazonApp -->
+    </classes>
+  </test> <!-- selenium(failed) -->
+</suite> <!-- Failed suite [RegressionSuite] -->
