@@ -35,8 +35,7 @@ public class AppiumClient {
 	}
 	
 	public static void quitDriver() {
-		if(driver != null) {
-			driver.close();
+		if(driver != null) {			
 			driver.quit();
 		}
 	}

@@ -1,6 +1,5 @@
 package stepDef;
 
-import org.apache.tools.ant.util.KeepAliveInputStream;
 import org.openqa.selenium.By;
 import org.testng.Assert;
 import org.testng.asserts.SoftAssert;
@@ -39,14 +38,14 @@ public class FilterPageStepsDef {
 	public void user_can_see_serveral_fields_on_the_filter_page() throws Throwable {
 		SoftAssert softAssert=new SoftAssert();
 	
-		softAssert.assertTrue(keyword.verifyExist(FilterPage.locFilter),"");
-		softAssert.assertTrue(keyword.verifyExist(FilterPage.jobType),"");
+		softAssert.assertTrue(keyword.verifyExist(FilterPage.locFilter));
+		softAssert.assertTrue(keyword.verifyExist(FilterPage.jobType));
 	   keyword.scrollDown();
 	   keyword.scrollDown();
-	   softAssert.assertTrue(keyword.verifyExist(FilterPage.englishSpeakingLevel),"");
-	   softAssert.assertTrue(keyword.verifyExist(FilterPage.workExp),"");
-	   softAssert.assertTrue(keyword.verifyExist(FilterPage.resetButton),"");
-	   softAssert.assertTrue(keyword.verifyExist(FilterPage.applyButton),"");
+	   softAssert.assertTrue(keyword.verifyExist(FilterPage.englishSpeakingLevel));
+	   softAssert.assertTrue(keyword.verifyExist(FilterPage.workExp));
+	   softAssert.assertTrue(keyword.verifyExist(FilterPage.resetButton));
+	   softAssert.assertTrue(keyword.verifyExist(FilterPage.applyButton));
 	   keyword.click(FilterPage.applyButton);
 	   softAssert.assertAll();
 	   

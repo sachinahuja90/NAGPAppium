@@ -1,5 +1,6 @@
 Feature: Filter page Work India Application
 
+	@SortPage
   Scenario Outline: Verify the sort options on the sort pop-up
     Given Appium server is up and running and WorkIndia application is launched
     When User is on Landing page of the application

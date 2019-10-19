@@ -8,7 +8,6 @@ public class SignUp {
 	public SignUp() throws Exception{
 		AppiumKeywords keyword= new AppiumKeywords();
 		
-//		if(keyword.verifyExist(HomePage.searchBox)) {
 			keyword.sendKeys(SignUpPage.fullName, "Rohit");
 			keyword.sendKeys(SignUpPage.phoneNumber, "1234234234");
 			keyword.click(SignUpPage.submitButton);

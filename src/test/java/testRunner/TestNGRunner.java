@@ -8,7 +8,7 @@ import java.util.HashMap;
 import org.apache.log4j.Logger;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.AfterSuite;
-import org.testng.annotations.BeforeClass;
+import org.testng.annotations.BeforeSuite;
 
 import com.cucumber.listener.ExtentProperties;
 import com.cucumber.listener.Reporter;
@@ -24,7 +24,7 @@ import stepDef.SignUp;
 
 @CucumberOptions(features= {"src/test/java/features"},
 		glue= {"stepDef"},
-			
+		tags = {"~@Ignore"},
 		dryRun=false,		
 				plugin = { "pretty", "com.cucumber.listener.ExtentCucumberFormatter:",
 		"json:target/cucumber-reports/Cucumber.json" }, 
@@ -44,8 +44,9 @@ public class TestNGRunner extends AbstractTestNGCucumberTests {
 	public static String absPath = System.getProperty("user.dir");
 	public static final Logger LOGGER = Logger.getLogger(TestNGRunner.class);
 	
+	public static String currentFolder="";
 	
-	@BeforeClass
+	@BeforeSuite
 	public void intiateAppiumServer() throws Exception {
 		configProperties=new PropertyReader().getProperties(absPath+"\\src\\test\\resources\\config.Properties");
 		String currentFolder=absPath + configProperties.get("htmlReportFolder");//+"\\"+(utility.getCurrentDateTime().replaceAll("/","-").replaceAll(":", "-"));
@@ -61,6 +62,7 @@ public class TestNGRunner extends AbstractTestNGCucumberTests {
 		ExtentProperties extentProperties = ExtentProperties.INSTANCE;
 		String reportPath=absPath+configProperties.get("htmlReportFolder") + "/" + reportFolderName + "/cucumber_report.html";
 		extentProperties.setReportPath(reportPath);
+		TestNGRunner.currentFolder=absPath+configProperties.get("htmlReportFolder") + "/" + reportFolderName;
 
     	
 		service =AppiumDriverLocalService.buildDefaultService();
@@ -71,11 +73,20 @@ public class TestNGRunner extends AbstractTestNGCucumberTests {
 		new SignUp();		
 	}
 	
+	/*
+	 * This method is called after test suite completion and kill the driver and stop appium server.
+	 */
 	@AfterSuite
 	public void stopAppiumServer() {
 		AppiumClient.quitDriver();
 		service.stop();
 	}
+	
+
+	/*
+	 * This method is called after test class completion to publish report
+	 */
+	
 	
 	@AfterClass
 	public static void teardown() {

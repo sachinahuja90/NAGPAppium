@@ -48,7 +48,7 @@ public class AppiumKeywords {
 			MobileElement we=AppiumClient.getDriver().findElement(by);
 			we.clear();
 			we.sendKeys(text);
-			LOGGER.info(text + " enterted in WebElement : [" + by + "]");
+			LOGGER.info(text + " enterted in Mobile Element : [" + by + "]");
 		}
 		catch (Exception e) {
 			LOGGER.error("Mobile Element " + " [" + by + "] is not present.");	
@@ -61,7 +61,7 @@ public class AppiumKeywords {
 			waitForElementLoad(by,30);
 			MobileElement we=AppiumClient.getDriver().findElement(by);
 			String text=we.getText();
-			LOGGER.info(text + " extracted from WebElement : [" + by + "]");
+			LOGGER.info(text + " extracted from Mobile Element : [" + by + "]");
 			return text;
 		}
 		catch (Exception e) {
@@ -76,7 +76,7 @@ public class AppiumKeywords {
 		try {			
 			waitForElementLoad(by,10);
 			if (AppiumClient.getDriver().findElement(by).isEnabled()) {			
-				LOGGER.info("WebElement : [" + by + "] found.");
+				LOGGER.info("Mobile Element : [" + by + "] found.");
 				return true;
 			}			
 		}

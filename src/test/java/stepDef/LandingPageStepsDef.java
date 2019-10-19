@@ -53,7 +53,7 @@ public class LandingPageStepsDef {
 		softAssert.assertTrue(keyword.verifyExist(HomePage.shareIcon));
 		softAssert.assertTrue(keyword.verifyExist(HomePage.syncIcon));
 		softAssert.assertTrue(keyword.verifyExist(HomePage.notificationIcon));
-		softAssert.assertTrue(keyword.getElementList(HomePage.jobTitle).size()>0);
+		softAssert.assertTrue(keyword.getElementList(HomePage.jobTitle).size()>0,"Didn't find any job on job page.");
 		softAssert.assertAll();
 	}
 	
