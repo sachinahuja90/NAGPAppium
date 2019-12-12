@@ -40,5 +40,5 @@ Refer to the documents attached in `referenceDocument` Folder
 2. All past reports are saved under `AppiumProject/Arhived_test_results/<yyyy-mm-dd hh-mm-ss>.zip/cucumber_report.html` 
 
 ## Git Repository for the source.
-`https://github.com/sachinahuja90/NAGPSeleniumAssignment`
+`https://github.com/sachinahuja90/NAGPAppium`
 
